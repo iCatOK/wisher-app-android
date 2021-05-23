@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:padding="20dp"
+    tools:context=".fragments.wishgen.WishGenSessionEndFragment">
+
+    <TextView
+        android:id="@+id/wishgen_end_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:padding="10dp"
+        android:textStyle="bold"
+        android:text="Поздравляем!"
+        android:textSize="28sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:id="@+id/wishgen_end_hint"
+        android:layout_height="wrap_content"
+        android:background="@drawable/card_bg"
+        android:layout_marginTop="20dp"
+        android:padding="15dp"
+        android:layout_below="@id/wishgen_end_title"
+        android:textStyle="normal"
+        android:text="Скопируйте поздравление и порадуйте наконец именнинка!"
+        android:textSize="18sp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/wishgen_end_hint">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:id="@+id/wishgen_end_wish_text"
+                android:layout_height="wrap_content"
+                android:background="@drawable/card_wishtext_bg"
+                android:padding="15dp"
+                android:layout_alignParentTop="true"
+                android:textStyle="normal"
+                android:textColor="@color/white"
+                android:text="Хорошее поздравление, ня"
+                android:textSize="18sp" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_below="@id/wishgen_end_wish_text"
+                android:id="@+id/wishgen_copy_wish"
+                android:text="скопировать в буфер"
+                android:layout_centerInParent="true"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:id="@+id/wishgen_exit"
+                android:layout_below="@id/wishgen_copy_wish"
+                android:text="выйти"
+                android:layout_centerInParent="true"/>
+
+        </RelativeLayout>
+
+
+
+    </ScrollView>
+
+
+</RelativeLayout>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_margin="16dp"
+    android:longClickable="true"
+    android:background="@drawable/card_bg">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="15dp">
+
+        <TextView
+            android:id="@+id/privacy_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/privacy_tag_private"
+            android:padding="5dp"
+            android:text="Приватный"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textSize="9sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/wishText"
+                android:textSize="18sp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:textStyle="normal"
+                android:text="@string/wish_sample" />
+
+        </LinearLayout>
+        <me.gujun.android.taggroup.TagGroup
+            android:id="@+id/tag_group_wish_blocks"
+            style="@style/TagGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right" />
+
+    </LinearLayout>
+
+</FrameLayout>

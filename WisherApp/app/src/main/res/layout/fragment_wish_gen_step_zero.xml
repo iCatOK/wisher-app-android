@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:clickable="true"
+    android:focusableInTouchMode="true"
+    android:padding="20dp"
+    tools:context=".fragments.wishgen.AdresseeConfigFragment">
+
+
+    <TextView
+        android:id="@+id/wishgen_adressee_config_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:padding="10dp"
+        android:textStyle="bold"
+        android:text="Кого поздравляем?"
+        android:textSize="28sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:id="@+id/wishgen_adressee_config_hint"
+        android:layout_height="wrap_content"
+        android:background="@drawable/card_bg"
+        android:layout_marginTop="20dp"
+        android:padding="15dp"
+        android:layout_below="@id/wishgen_adressee_config_title"
+        android:textStyle="normal"
+        android:text="Напишите имя именинника и выберите пол и его качества ниже. Блоки с текстом поздравлений будут отсортированы по качествам и полу."
+        android:textSize="18sp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusableInTouchMode="true"
+        android:layout_below="@id/wishgen_adressee_config_hint">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusableInTouchMode="true">
+            <EditText
+                android:id="@+id/wishgen_adressee_config_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:padding="10dp"
+                android:background="@drawable/edit_text_bg"
+                android:hint="Имя именинника"
+                />
+
+            <TextView
+                android:id="@+id/sex"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/wishgen_adressee_config_name"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
+                android:paddingStart="10dp"
+                android:text="Пол"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <RadioGroup
+                android:id="@+id/sex_radio_group"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusableInTouchMode="true"
+                android:layout_marginStart="3dp"
+                android:layout_below="@id/sex" >
+
+                <RadioButton
+                    android:id="@+id/radioButtonDosesntMatter"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Не учитывать" />
+
+                <RadioButton
+                    android:id="@+id/radioButtonMan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Мужской" />
+
+                <RadioButton
+                    android:id="@+id/radioButtonWoman"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Женский" />
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/features"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/sex_radio_group"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
+                android:paddingStart="10dp"
+                android:text="Тэги"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusableInTouchMode="true"
+                android:id="@+id/tag_search_layout"
+                android:orientation="horizontal"
+                android:layout_below="@id/tag_group_wishgen_zero">
+
+                <EditText
+                    android:id="@+id/wishgen_tag_name"
+                    android:layout_width="0dp"
+                    android:layout_weight="6"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:padding="10dp"
+                    android:layout_marginEnd="20dp"
+                    android:background="@drawable/edit_text_bg"
+                    android:hint="Напишите тэг"
+                    />
+
+                <Button
+                    android:id="@+id/add_tag_button"
+                    android:layout_width="0dp"
+                    android:layout_weight="3"
+                    android:layout_marginTop="5dp"
+
+                    android:layout_height="wrap_content"
+                    android:text="добавить"
+                    android:padding="10dp" />
+            </LinearLayout>
+
+            <me.gujun.android.taggroup.TagGroup
+                android:id="@+id/tag_group_wishgen_zero"
+                style="@style/TagGroup"
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_below="@id/features"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/step_0_nextStepButton"
+                android:layout_below="@id/tag_search_layout"
+                android:text="Далее"
+                android:layout_centerInParent="true"/>
+
+        </RelativeLayout>
+
+
+
+
+    </ScrollView>
+
+
+
+
+</RelativeLayout>

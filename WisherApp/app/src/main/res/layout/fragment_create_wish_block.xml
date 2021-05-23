@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:id="@+id/scrollViewCreateBlock"
+    android:padding="20dp"
+    tools:context=".fragments.edit.CreateWishBlock">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusableInTouchMode="true">
+
+        <TextView
+            android:id="@+id/create_block_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:textStyle="bold"
+            android:text="Создание блока"
+            android:textSize="28sp" />
+
+        <EditText
+            android:id="@+id/create_block_text"
+            android:layout_width="match_parent"
+            android:layout_below="@+id/create_block_title"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:inputType="textMultiLine"
+            android:hint="Текст блока"
+            android:padding="10dp"
+            android:background="@drawable/edit_text_bg"
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/addNameButtonCreateBlock"
+            android:layout_below="@+id/create_block_text"
+            android:text="Добавить вставку имени"
+            android:layout_marginTop="10dp"
+            />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Сделать публичным"
+            android:layout_below="@id/addNameButtonCreateBlock"
+            android:id="@+id/create_block_public_checkbox" />
+
+        <TextView
+            android:id="@+id/create_block_sex_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/create_block_public_checkbox"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            android:paddingStart="10dp"
+            android:text="Пол"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <RadioGroup
+            android:id="@+id/create_block_sex_radio_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="3dp"
+            android:layout_below="@id/create_block_sex_label" >
+
+            <RadioButton
+                android:id="@+id/radioButtonDosesntMatterCreateBlock"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Не учитывать" />
+
+            <RadioButton
+                android:id="@+id/radioButtonManCreateBlock"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Мужской" />
+
+            <RadioButton
+                android:id="@+id/radioButtonWomanCreateBlock"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Женский" />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/create_block_step_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/create_block_sex_radio_group"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            android:paddingStart="10dp"
+            android:text="Этап поздравления"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/create_block_begin_check"
+            android:text="Начало"
+            android:layout_below="@id/create_block_step_label"/>
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/create_block_mid_check"
+            android:text="Середина"
+            android:layout_below="@id/create_block_begin_check"/>
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/create_block_end_check"
+            android:text="Конец"
+            android:layout_below="@id/create_block_mid_check"/>
+
+        <TextView
+            android:id="@+id/create_block_features"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/create_block_end_check"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            android:paddingStart="10dp"
+            android:text="Тэги"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/create_block_tag_search_layout"
+            android:orientation="horizontal"
+            android:layout_below="@id/tag_group_create_block">
+
+            <EditText
+                android:id="@+id/create_block_tag_name"
+                android:layout_width="0dp"
+                android:layout_weight="6"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:padding="10dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/edit_text_bg"
+                android:hint="Напишите тэг"
+                />
+
+            <Button
+                android:id="@+id/create_block_add_tag_button"
+                android:layout_width="0dp"
+                android:layout_weight="3"
+                android:layout_marginTop="5dp"
+
+                android:layout_height="wrap_content"
+                android:text="добавить"
+                android:padding="10dp" />
+        </LinearLayout>
+
+        <me.gujun.android.taggroup.TagGroup
+            android:id="@+id/tag_group_create_block"
+            style="@style/TagGroup"
+            android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/create_block_features"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/create_block_tag_search_layout"
+            android:id="@+id/create_block_ok_button"
+            android:text="Создать блок"
+            android:layout_centerInParent="true"
+            />
+
+    </RelativeLayout>
+
+
+
+
+</ScrollView>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:padding="20dp"
+    tools:context=".fragments.wishgen.EndSetupFragment">
+
+    <TextView
+        android:id="@+id/wishgen_step_3_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:padding="10dp"
+        android:textStyle="bold"
+        android:text="Выберете конец"
+        android:textSize="28sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:id="@+id/wishgen_step_3_hint"
+        android:layout_height="wrap_content"
+        android:background="@drawable/card_bg"
+        android:layout_marginTop="20dp"
+        android:padding="15dp"
+        android:layout_below="@id/wishgen_step_3_title"
+        android:textStyle="normal"
+        android:text="Осталось только выбрать, как закончить ваше красивое прекрасное поздравление!"
+        android:textSize="18sp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/wishgen_step_3_hint">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/wishgen_step_3_RecyclerViewWishBlocks"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/step_3_nextStepButton"
+                android:layout_marginTop="20dp"
+                android:layout_below="@id/wishgen_step_3_RecyclerViewWishBlocks"
+                android:text="Сгенерировать"
+                android:layout_centerInParent="true"/>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+
+
+</RelativeLayout>

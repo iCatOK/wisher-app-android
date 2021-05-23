@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:padding="20dp"
+    tools:context=".fragments.wishgen.BeginSetupFragment">
+
+    <TextView
+        android:id="@+id/wishgen_step_1_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:padding="10dp"
+        android:textStyle="bold"
+        android:text="Выберете начало"
+        android:textSize="28sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:id="@+id/wishgen_step_1_hint"
+        android:layout_height="wrap_content"
+        android:background="@drawable/card_bg"
+        android:layout_marginTop="20dp"
+        android:padding="15dp"
+        android:layout_below="@id/wishgen_step_1_title"
+        android:textStyle="normal"
+        android:text="Выберите начальный блок поздравления. Вы можете найти подходящий блок ниже. На место имени уже вставлено имя именинника."
+        android:textSize="18sp" />
+
+<!--    <ScrollView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:id="@+id/scroll_view_step1"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:nestedScrollingEnabled="true"-->
+<!--        android:layout_below="@id/wishgen_step_1_hint"-->
+<!--        android:layout_above="@id/step_1_nextStepButton">-->
+
+<!--        <RelativeLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content">-->
+
+
+<!--            -->
+
+
+
+<!--        </RelativeLayout>-->
+
+
+
+
+<!--    </ScrollView>-->
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/wishgen_step_1_RecyclerViewWishBlocks"
+        android:layout_width="match_parent"
+        android:layout_below="@id/wishgen_step_1_hint"
+        android:layout_marginTop="10dp"
+        android:layout_above="@id/step_1_nextStepButton"
+        android:layout_height="match_parent"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/step_1_nextStepButton"
+        android:layout_marginTop="20dp"
+        android:layout_alignParentBottom="true"
+        android:text="Далее"
+        android:layout_centerInParent="true"/>
+
+</RelativeLayout>

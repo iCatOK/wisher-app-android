@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:clickable="true"
+    android:focusableInTouchMode="true"
+    android:gravity="center"
+    android:padding="20dp"
+    tools:context=".fragments.wishgen.EndSetupFragment">
+
+    <TextView
+        android:id="@+id/auth_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:text="WisherApp"
+        android:textSize="48sp" />
+    <TextView
+        android:id="@+id/auth_subtitle"
+        android:layout_below="@id/auth_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:textAlignment="center"
+        android:inputType="textEmailAddress"
+        android:text="Авторизация"
+        android:textSize="24sp" />
+    <EditText
+        android:id="@+id/auth_username"
+        android:layout_below="@id/auth_subtitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:padding="10dp"
+        android:background="@drawable/edit_text_bg"
+        android:hint="Логин"
+        android:textAlignment="center"
+        />
+    <EditText
+        android:id="@+id/auth_password"
+        android:layout_below="@id/auth_username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:padding="10dp"
+        android:ems="40"
+        android:inputType="textPassword"
+        android:background="@drawable/edit_text_bg"
+        android:hint="Пароль"
+        android:textAlignment="center"
+        />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttons"
+        android:layout_below="@id/auth_password"
+        android:layout_marginTop="10dp"
+        android:layout_centerInParent="true"
+        android:orientation="horizontal">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/login_button"
+            android:text="Войти" />
+        <Button
+            android:layout_width="wrap_content"
+            android:id="@+id/to_registration_button"
+            android:layout_marginStart="10dp"
+            android:layout_height="wrap_content"
+            android:text="Регистрация" />
+    </LinearLayout>
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/buttons"
+        android:layout_marginTop="30dp"
+        android:visibility="gone"
+        android:layout_centerHorizontal="true"/>
+
+</RelativeLayout>

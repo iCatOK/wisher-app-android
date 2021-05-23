@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">WisherApp</string>
+    <string name="wish_sample">Поздравляю с днём рождения, желаю счастья, вечной жизни, Пух. И не только Пух, но и много кто еще.</string>
+    <string name="wish_title_sample">Мария, 22/01/2021</string>
+
+    <string-array name="labels">
+        <item>Foo</item>
+    </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

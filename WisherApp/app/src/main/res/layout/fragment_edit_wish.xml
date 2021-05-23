@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:clickable="true"
+    android:focusableInTouchMode="true"
+    android:padding="20dp"
+    tools:context=".fragments.wishgen.AdresseeConfigFragment">
+
+    <TextView
+        android:id="@+id/edit_wish_title_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:padding="10dp"
+        android:textStyle="bold"
+        android:text="Редактирование поздравления"
+        android:textSize="28sp" />
+
+    <EditText
+        android:id="@+id/edit_wish_title"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/edit_wish_title_main"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:inputType="textMultiLine"
+        android:padding="10dp"
+        android:hint="Заголовок"
+        android:background="@drawable/edit_text_bg"
+        />
+
+    <EditText
+        android:id="@+id/edit_wish_text"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/edit_wish_title"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:inputType="textMultiLine"
+        android:hint="Поздавление"
+        android:padding="10dp"
+        android:background="@drawable/edit_text_bg"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/edit_wish_text"
+        android:id="@+id/edit_wish_ok_button"
+        android:text="Применить изменения"
+        android:layout_centerInParent="true"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edit_wish_ok_button"
+        android:id="@+id/edit_wish_copy_wish"
+        android:text="скопировать в буфер"
+        android:layout_centerInParent="true"/>
+
+
+
+</RelativeLayout>
