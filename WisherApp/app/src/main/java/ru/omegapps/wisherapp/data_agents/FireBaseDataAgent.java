@@ -6,6 +6,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.fragment.app.FragmentActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -24,10 +25,13 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import ru.omegapps.wisherapp.MainActivity;
+import ru.omegapps.wisherapp.R;
 import ru.omegapps.wisherapp.dto.Wish;
 import ru.omegapps.wisherapp.dto.WishBlock;
 import ru.omegapps.wisherapp.enums.WishBlockEnum;
 import ru.omegapps.wisherapp.enums.WishEnum;
+import ru.omegapps.wisherapp.fragments.HomeFragment;
+import ru.omegapps.wisherapp.fragments.wishgen.WishGenSessionEndFragment;
 import ru.omegapps.wisherapp.interfaces.DataAgent;
 
 public class FireBaseDataAgent {

@@ -19,7 +19,9 @@ import java.util.List;
 
 import me.gujun.android.taggroup.TagGroup;
 import ru.omegapps.wisherapp.R;
+import ru.omegapps.wisherapp.data_agents.FireBaseDataAgent;
 import ru.omegapps.wisherapp.dto.Wish;
+import ru.omegapps.wisherapp.fragments.HomeFragment;
 import ru.omegapps.wisherapp.managers.WishManager;
 import ru.omegapps.wisherapp.utils.MainUtils;
 
@@ -38,6 +40,7 @@ public class AdresseeConfigFragment extends Fragment {
     private TagGroup tagGroup;
     private Button setTagButton;
     private Button nextStepButton;
+    private Button randomGenButton;
     private List<String> tagList;
     private EditText addresseeName;
     private String sex = "";
@@ -89,6 +92,7 @@ public class AdresseeConfigFragment extends Fragment {
         tagGroup = v.findViewById(R.id.tag_group_wishgen_zero);
         setTagButton = v.findViewById(R.id.add_tag_button);
         nextStepButton = v.findViewById(R.id.step_0_nextStepButton);
+        randomGenButton = v.findViewById(R.id.step_0_randomGenButton);
         sexRadioGroup = v.findViewById(R.id.sex_radio_group);
         addresseeName = v.findViewById(R.id.wishgen_adressee_config_name);
         addresseeName.setOnFocusChangeListener(MainUtils.hideKeyboardOnUnfocused(getActivity()));
@@ -133,6 +137,33 @@ public class AdresseeConfigFragment extends Fragment {
                 tagList.add(tagText.getText().toString());
                 tagGroup.setTags(tagList);
                 tagText.setText("");
+            }
+        });
+
+        randomGenButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                WishManager.resetSession();
+                if(!sex.isEmpty())
+                    WishManager.sessionSex = sex;
+
+                if(!addresseeName.getText().toString().isEmpty()) {
+                    WishManager.sessionAddresseeName = addresseeName.getText().toString();
+                    WishManager.sessionNameState = "";
+                } else {
+                    WishManager.sessionNameState = "unnamed";
+                }
+
+                WishManager.sessionTags = (ArrayList<String>) tagList;
+
+                String finalWish = WishManager.generateRandomWish(getActivity());
+
+                getActivity().getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.nav_host_fragment_wisher, new HomeFragment())
+                        .add(R.id.nav_host_fragment_wisher, WishGenSessionEndFragment.newInstance(finalWish))
+                        .addToBackStack(null)
+                        .commit();
             }
         });
 

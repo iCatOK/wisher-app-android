@@ -2,6 +2,8 @@ package ru.omegapps.wisherapp.managers;
 
 import android.content.Context;
 
+import androidx.fragment.app.FragmentActivity;
+
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.text.SimpleDateFormat;
@@ -9,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 import java.util.Locale;
+import java.util.Random;
 
 import ru.omegapps.wisherapp.data_agents.FireBaseDataAgent;
 import ru.omegapps.wisherapp.data_agents.LocalDataAgent;
@@ -65,10 +68,6 @@ public class WishManager {
         }
     }
 
-    public static String randomWishBlockPicker(){
-        return null;
-    }
-
     public static String generateCurrentWish(Context context){
 
         sessionMainStack = new ArrayList<>();
@@ -107,5 +106,18 @@ public class WishManager {
                 sessionEndStack = new ArrayList<>();
                 break;
         }
+    }
+
+    public static String generateRandomWish(FragmentActivity activity) {
+        Random random = new Random();
+        ArrayList<WishBlock> step = getWishBlocksOfStep("begin");
+        sessionBeginStack.add(step.get(random.nextInt(step.size())));
+        step = getWishBlocksOfStep("mid");
+        sessionMidStack.add(step.get(random.nextInt(step.size())));
+        step = getWishBlocksOfStep("end");
+        sessionEndStack.add(step.get(random.nextInt(step.size())));
+        String finalWish = generateCurrentWish(activity);
+        resetSession();
+        return finalWish;
     }
 }
