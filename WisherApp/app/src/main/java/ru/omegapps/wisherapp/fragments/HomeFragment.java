@@ -198,10 +198,9 @@ public class HomeFragment extends Fragment implements OnMyItemClickListener, OnM
 
     @Override
     public void onMyItemLongClick(int position, View v) {
-        String wishText = wishes.get(position).getText().substring(0, 20) + "...";
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
         builder.setTitle("Удаление поздравления");
-        builder.setMessage("Хотите удалить поздравление '" + wishText + "'?");
+        builder.setMessage("Хотите удалить поздравление?");
 
         builder.setPositiveButton("Да!", (dialog, which) -> deleteWishByPosition(position));
         builder.setNegativeButton("Отмена", (dialog, which) -> dialog.dismiss());

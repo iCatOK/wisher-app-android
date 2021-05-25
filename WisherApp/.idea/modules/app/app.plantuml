@@ -1,0 +1,272 @@
+@startuml
+
+title __WISHERAPP.APP's Class Diagram__\n
+
+  namespace ru.omegapps.wisherapp {
+    class ru.omegapps.wisherapp.BuildConfig {
+    }
+  }
+  
+
+  namespace ru.omegapps.wisherapp {
+    class ru.omegapps.wisherapp.MainActivity {
+    }
+  }
+  
+
+  namespace ru.omegapps.wisherapp {
+    namespace adapters {
+      class ru.omegapps.wisherapp.adapters.WishBlockRecycleAdapter {
+      }
+    }
+  }
+  
+
+  namespace ru.omegapps.wisherapp {
+    namespace adapters {
+      class ru.omegapps.wisherapp.adapters.WishRecycleAdapter {
+      }
+    }
+  }
+  
+
+  namespace ru.omegapps.wisherapp {
+    namespace data_agents {
+      class ru.omegapps.wisherapp.data_agents.FireBaseDataAgent {
+      }
+    }
+  }
+  
+
+  namespace ru.omegapps.wisherapp {
+    namespace data_agents {
+      class ru.omegapps.wisherapp.data_agents.LocalDataAgent {
+      }
+    }
+  }
+  
+
+  namespace ru.omegapps.wisherapp {
+    namespace dto {
+      class ru.omegapps.wisherapp.dto.Wish {
+      }
+    }
+  }
+  
+
+  namespace ru.omegapps.wisherapp {
+    namespace dto {
+      class ru.omegapps.wisherapp.dto.WishBlock {
+      }
+    }
+  }
+  
+
+  namespace ru.omegapps.wisherapp {
+    namespace enums {
+      enum WishBlockEnum {
+      }
+    }
+  }
+  
+
+  namespace ru.omegapps.wisherapp {
+    namespace enums {
+      enum WishEnum {
+      }
+    }
+  }
+  
+
+  namespace ru.omegapps.wisherapp {
+    namespace fragments {
+      class ru.omegapps.wisherapp.fragments.HomeFragment {
+      }
+    }
+  }
+  
+
+  namespace ru.omegapps.wisherapp {
+    namespace fragments {
+      class ru.omegapps.wisherapp.fragments.WishBlocksFragment {
+      }
+    }
+  }
+  
+
+  namespace ru.omegapps.wisherapp {
+    namespace fragments {
+      namespace auth {
+        class ru.omegapps.wisherapp.fragments.auth.AuthorizatonFragment {
+        }
+      }
+    }
+  }
+  
+
+  namespace ru.omegapps.wisherapp {
+    namespace fragments {
+      namespace auth {
+        class ru.omegapps.wisherapp.fragments.auth.RegistrationFragment {
+        }
+      }
+    }
+  }
+  
+
+  namespace ru.omegapps.wisherapp {
+    namespace fragments {
+      namespace edit {
+        class ru.omegapps.wisherapp.fragments.edit.CreateWishBlock {
+        }
+      }
+    }
+  }
+  
+
+  namespace ru.omegapps.wisherapp {
+    namespace fragments {
+      namespace edit {
+        class ru.omegapps.wisherapp.fragments.edit.EditWishBlockFragment {
+        }
+      }
+    }
+  }
+  
+
+  namespace ru.omegapps.wisherapp {
+    namespace fragments {
+      namespace edit {
+        class ru.omegapps.wisherapp.fragments.edit.EditWishFragment {
+        }
+      }
+    }
+  }
+  
+
+  namespace ru.omegapps.wisherapp {
+    namespace fragments {
+      namespace wishgen {
+        class ru.omegapps.wisherapp.fragments.wishgen.AdresseeConfigFragment {
+        }
+      }
+    }
+  }
+  
+
+  namespace ru.omegapps.wisherapp {
+    namespace fragments {
+      namespace wishgen {
+        class ru.omegapps.wisherapp.fragments.wishgen.BeginSetupFragment {
+        }
+      }
+    }
+  }
+  
+
+  namespace ru.omegapps.wisherapp {
+    namespace fragments {
+      namespace wishgen {
+        class ru.omegapps.wisherapp.fragments.wishgen.EndSetupFragment {
+        }
+      }
+    }
+  }
+  
+
+  namespace ru.omegapps.wisherapp {
+    namespace fragments {
+      namespace wishgen {
+        class ru.omegapps.wisherapp.fragments.wishgen.MiddleSetupFragment {
+        }
+      }
+    }
+  }
+  
+
+  namespace ru.omegapps.wisherapp {
+    namespace fragments {
+      namespace wishgen {
+        class ru.omegapps.wisherapp.fragments.wishgen.WishGenSessionEndFragment {
+        }
+      }
+    }
+  }
+  
+
+  namespace ru.omegapps.wisherapp {
+    namespace interfaces {
+      interface ru.omegapps.wisherapp.interfaces.DataAgent {
+      }
+    }
+  }
+  
+
+  namespace ru.omegapps.wisherapp {
+    namespace interfaces {
+      interface ru.omegapps.wisherapp.interfaces.OnMyItemClickListener {
+      }
+    }
+  }
+  
+
+  namespace ru.omegapps.wisherapp {
+    namespace interfaces {
+      interface ru.omegapps.wisherapp.interfaces.OnMyItemLongClickListener {
+      }
+    }
+  }
+  
+
+  namespace ru.omegapps.wisherapp {
+    namespace managers {
+      class ru.omegapps.wisherapp.managers.WishManager {
+      }
+    }
+  }
+  
+
+  namespace ru.omegapps.wisherapp {
+    namespace utils {
+      class ru.omegapps.wisherapp.utils.MainUtils {
+      }
+    }
+  }
+  
+
+  ru.omegapps.wisherapp.MainActivity -up-|> androidx.appcompat.app.AppCompatActivity
+  ru.omegapps.wisherapp.MainActivity o-- ru.omegapps.wisherapp.data_agents.FireBaseDataAgent : dataAgent
+  ru.omegapps.wisherapp.adapters.WishBlockRecycleAdapter -up-|> androidx.recyclerview.widget.RecyclerView.Adapter
+  ru.omegapps.wisherapp.adapters.WishBlockRecycleAdapter o-- ru.omegapps.wisherapp.interfaces.OnMyItemClickListener : onMyItemClickListener
+  ru.omegapps.wisherapp.adapters.WishBlockRecycleAdapter o-- ru.omegapps.wisherapp.interfaces.OnMyItemLongClickListener : onMyItemLongClickListener
+  ru.omegapps.wisherapp.adapters.WishRecycleAdapter -up-|> androidx.recyclerview.widget.RecyclerView.Adapter
+  ru.omegapps.wisherapp.adapters.WishRecycleAdapter o-- ru.omegapps.wisherapp.interfaces.OnMyItemClickListener : onMyItemClickListener
+  ru.omegapps.wisherapp.adapters.WishRecycleAdapter o-- ru.omegapps.wisherapp.interfaces.OnMyItemLongClickListener : onMyItemLongClickListener
+  ru.omegapps.wisherapp.data_agents.LocalDataAgent .up.|> ru.omegapps.wisherapp.interfaces.DataAgent
+  ru.omegapps.wisherapp.fragments.HomeFragment .up.|> ru.omegapps.wisherapp.interfaces.OnMyItemClickListener
+  ru.omegapps.wisherapp.fragments.HomeFragment .up.|> ru.omegapps.wisherapp.interfaces.OnMyItemLongClickListener
+  ru.omegapps.wisherapp.fragments.HomeFragment -up-|> androidx.fragment.app.Fragment
+  ru.omegapps.wisherapp.fragments.WishBlocksFragment -up-|> androidx.fragment.app.Fragment
+  ru.omegapps.wisherapp.fragments.auth.AuthorizatonFragment -up-|> androidx.fragment.app.Fragment
+  ru.omegapps.wisherapp.fragments.auth.RegistrationFragment -up-|> androidx.fragment.app.Fragment
+  ru.omegapps.wisherapp.fragments.edit.CreateWishBlock -up-|> androidx.fragment.app.Fragment
+  ru.omegapps.wisherapp.fragments.edit.EditWishBlockFragment -up-|> androidx.fragment.app.Fragment
+  ru.omegapps.wisherapp.fragments.edit.EditWishFragment -up-|> androidx.fragment.app.Fragment
+  ru.omegapps.wisherapp.fragments.wishgen.AdresseeConfigFragment -up-|> androidx.fragment.app.Fragment
+  ru.omegapps.wisherapp.fragments.wishgen.BeginSetupFragment .up.|> ru.omegapps.wisherapp.interfaces.OnMyItemClickListener
+  ru.omegapps.wisherapp.fragments.wishgen.BeginSetupFragment -up-|> androidx.fragment.app.Fragment
+  ru.omegapps.wisherapp.fragments.wishgen.EndSetupFragment .up.|> ru.omegapps.wisherapp.interfaces.OnMyItemClickListener
+  ru.omegapps.wisherapp.fragments.wishgen.EndSetupFragment -up-|> androidx.fragment.app.Fragment
+  ru.omegapps.wisherapp.fragments.wishgen.MiddleSetupFragment .up.|> ru.omegapps.wisherapp.interfaces.OnMyItemClickListener
+  ru.omegapps.wisherapp.fragments.wishgen.MiddleSetupFragment -up-|> androidx.fragment.app.Fragment
+  ru.omegapps.wisherapp.fragments.wishgen.WishGenSessionEndFragment -up-|> androidx.fragment.app.Fragment
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml
