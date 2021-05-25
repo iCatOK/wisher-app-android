@@ -88,9 +88,7 @@ public class WishManager {
                         new SimpleDateFormat("dd/MM/yyyy")
                                 .format(new Date()), builder.toString()
         );
-        //DATA_AGENT.pushWish(newWish, currentUid);
         FireBaseDataAgent.pushWish(newWish, context);
-
         return builder.toString();
     }
 
