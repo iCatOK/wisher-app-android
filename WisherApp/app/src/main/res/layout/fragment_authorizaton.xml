@@ -36,6 +36,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:padding="10dp"
+        android:inputType="textEmailAddress"
         android:background="@drawable/edit_text_bg"
         android:hint="Логин"
         android:textAlignment="center"
