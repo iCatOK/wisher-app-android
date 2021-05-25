@@ -101,7 +101,6 @@ public class FireBaseDataAgent {
                 for(DataSnapshot ds: wBlocks.getChildren()) {
                     WishBlock newWishBlock = ds.getValue(WishBlock.class);
                     if(newWishBlock != null){
-                        newWishBlock.setUuid(ds.getKey());
                         if(newWishBlock.getTags() == null)
                             newWishBlock.setTags(new ArrayList<>());
                         userWishBlocks.add(newWishBlock);
@@ -123,13 +122,14 @@ public class FireBaseDataAgent {
                 for(DataSnapshot ds: snapshot.getChildren()) {
                     WishBlock newWishBlock = ds.getValue(WishBlock.class);
                     if(newWishBlock != null){
-                        newWishBlock.setUuid(ds.getKey());
-                        if(newWishBlock.getUuid() != null && newWishBlock.getUuid().equals(currentUser.getUid()))
-                            return;
-                        if(newWishBlock.getTags() == null)
-                            newWishBlock.setTags(new ArrayList<>());
-                        if(newWishBlock.isPublic() && !newWishBlock.getUserUuid().equals(currentUser.getUid()))
-                            publicWishBlocks.add(newWishBlock);
+                        if(currentUser != null){
+                            if(newWishBlock.getUuid() != null && newWishBlock.getUuid().equals(currentUser.getUid()))
+                                return;
+                            if(newWishBlock.getTags() == null)
+                                newWishBlock.setTags(new ArrayList<>());
+                            if(newWishBlock.isPublic() && !newWishBlock.getUserUuid().equals(currentUser.getUid()))
+                                publicWishBlocks.add(newWishBlock);
+                        }
                     }
                 }
                 Log.d("DEB", "Добавление прошло");
@@ -147,44 +147,6 @@ public class FireBaseDataAgent {
         if(mAuth == null)
             mAuth = FirebaseAuth.getInstance();
         mAuth.signOut();
-    }
-
-    public static void addBlankWB(Context context) {
-        WishBlock sampleWB = new WishBlock(WishBlockEnum.WishBlockOne);
-        if(wishBlockRef == null)
-            wishBlockRef = FirebaseDatabase.getInstance().getReference(WBLOCK_KEY);
-        if(currentUser == null){
-            Toast.makeText(context, "Не авторизован", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        wishBlockRef.child(currentUser.getUid()).push().setValue(sampleWB);
-        Toast.makeText(context, "Отправлено", Toast.LENGTH_SHORT).show();
-    }
-
-    public static void addBlankWBtoPublic(Context context) {
-        WishBlock sampleWB = new WishBlock(WishBlockEnum.WishBlockFour);
-        if(publicWishBlockRef == null)
-            publicWishBlockRef = FirebaseDatabase.getInstance().getReference(PUBLIC_WBLOCK_KEY);
-        if(currentUser == null){
-            Toast.makeText(context, "Не авторизован", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        publicWishBlockRef.push().setValue(sampleWB);
-        Toast.makeText(context, "Отправлено", Toast.LENGTH_SHORT).show();
-    }
-
-    public static void addBlankWish(Context context) {
-        Wish sampleWB = new Wish(WishEnum.WishOne);
-
-        if(wishRef == null)
-            wishRef = FirebaseDatabase.getInstance().getReference(WISH_KEY);
-
-        if(currentUser == null){
-            Toast.makeText(context, "Не авторизован", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        wishRef.child(currentUser.getUid()).push().setValue(sampleWB);
-        Toast.makeText(context, "Отправлено", Toast.LENGTH_SHORT).show();
     }
 
     public static ArrayList<WishBlock> getBlocksByTags(ArrayList<String> sessionTags, ArrayList<String> filters) {
@@ -227,7 +189,13 @@ public class FireBaseDataAgent {
     public static void updatePublicWishBlock(WishBlock newWishBlock) {
         if(newWishBlock.isPublic())
             publicWishBlockRef.child(newWishBlock.getUuid()).setValue(newWishBlock);
-        else
-            publicWishBlockRef.orderByChild("uuid").equalTo(newWishBlock.getUuid()).limitToFirst(1).getRef().removeValue();
+        else{
+            deletePublicWishBlock(newWishBlock.getUuid());
+        }
+//            publicWishBlockRef.orderByChild("uuid").equalTo(newWishBlock.getUuid()).limitToFirst(1).getRef().removeValue();
+    }
+
+    public static void deletePublicWishBlock(String uuid){
+        publicWishBlockRef.child(uuid).removeValue();
     }
 }

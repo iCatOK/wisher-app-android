@@ -260,6 +260,8 @@ public class EditWishBlockFragment extends Fragment {
         });
 
         addNameTagButton.setOnClickListener(e -> {
+            if(wishTextView.getText().toString().isEmpty())
+                return;
             String newString = wishTextView.getText().toString() + ENTER_NAME_TAG;
             wishTextView.setText(newString);
             int position = wishTextView.length();
@@ -274,11 +276,7 @@ public class EditWishBlockFragment extends Fragment {
         wishBlockRef
                 .child(user.getUid())
                 .child(wBlockUuid)
-                .removeValue()
-                .addOnCompleteListener(task -> wishBlockRef
-                        .child(user.getUid())
-                        .push()
-                        .setValue(newWishBlock));
+                .setValue(newWishBlock);
         FireBaseDataAgent.updatePublicWishBlock(newWishBlock);
     }
 

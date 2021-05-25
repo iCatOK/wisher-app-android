@@ -30,6 +30,7 @@ import java.util.List;
 
 import me.gujun.android.taggroup.TagGroup;
 import ru.omegapps.wisherapp.R;
+import ru.omegapps.wisherapp.data_agents.FireBaseDataAgent;
 import ru.omegapps.wisherapp.dto.WishBlock;
 import ru.omegapps.wisherapp.fragments.WishBlocksFragment;
 import ru.omegapps.wisherapp.utils.MainUtils;
@@ -183,6 +184,8 @@ public class CreateWishBlock extends Fragment {
         });
 
         addNameTagButton.setOnClickListener(e -> {
+            if(wishTextView.getText().toString().isEmpty())
+                return;
             String newString = wishTextView.getText().toString() + ENTER_NAME_TAG;
             wishTextView.setText(newString);
             int position = wishTextView.length();
@@ -194,10 +197,13 @@ public class CreateWishBlock extends Fragment {
     }
 
     private void createWishBlock(WishBlock newWishBlock) {
-        wishBlockRef
+        String uuid = wishBlockRef
                 .child(user.getUid())
                 .push()
-                .setValue(newWishBlock);
+                .getKey();
+        newWishBlock.setUuid(uuid);
+        wishBlockRef.child(user.getUid()).child(uuid).setValue(newWishBlock);
+        FireBaseDataAgent.updatePublicWishBlock(newWishBlock);
     }
 
     public void hideKeyboard(View view) {

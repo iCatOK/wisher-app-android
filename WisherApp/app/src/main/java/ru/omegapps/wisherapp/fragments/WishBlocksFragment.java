@@ -28,6 +28,7 @@ import java.util.ArrayList;
 
 import ru.omegapps.wisherapp.R;
 import ru.omegapps.wisherapp.adapters.WishBlockRecycleAdapter;
+import ru.omegapps.wisherapp.data_agents.FireBaseDataAgent;
 import ru.omegapps.wisherapp.dto.WishBlock;
 import ru.omegapps.wisherapp.fragments.edit.CreateWishBlock;
 import ru.omegapps.wisherapp.fragments.edit.EditWishBlockFragment;
@@ -151,10 +152,9 @@ public class WishBlocksFragment extends Fragment {
     }
 
     private void showAlertDialogToDeleteWishBlock(int position){
-        String wishText = wishBlocks.get(position).getWishText().substring(0, 20) + "...";
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
         builder.setTitle("Удаление блока поздравления");
-        builder.setMessage("Хотите удалить блок поздравления '" + wishText + "'?");
+        builder.setMessage("Хотите удалить блок поздравления?");
 
         builder.setPositiveButton("Да!", (dialog, which) -> deleteWishBlockByPosition(position));
         builder.setNegativeButton("Отмена", (dialog, which) -> dialog.dismiss());
@@ -164,6 +164,7 @@ public class WishBlocksFragment extends Fragment {
     }
 
     private void deleteWishBlockByPosition(int position) {
+        String uuid = wishBlocks.get(position).getUuid();
         wishBlockRef
                 .child(currentUser.getUid())
                 .child(wishBlocks.get(position).getUuid())
@@ -174,6 +175,7 @@ public class WishBlocksFragment extends Fragment {
                     else
                         Toast.makeText(getContext(), "Не удалось удалить", Toast.LENGTH_SHORT).show();
                 });
+        FireBaseDataAgent.deletePublicWishBlock(uuid);
     }
 
     @Override

@@ -3,10 +3,10 @@
     <item
         android:id="@+id/menu_wish_blocks"
         android:icon="@drawable/ic_wish_blocks_24"
-        android:title="Wish blocks"/>
+        android:title="Блоки"/>
 
     <item
         android:id="@+id/menu_wishes"
         android:icon="@drawable/ic_home_24"
-        android:title="Wishes"/>
+        android:title="Поздравления"/>
 </menu>
